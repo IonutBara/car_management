@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # platformWebApp
 
 This application was generated using JHipster 3.11.0, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v3.11.0](https://jhipster.github.io/documentation-archive/v3.11.0).
@@ -108,3 +109,7 @@ To set up a CI environment, consult the [Setting up Continuous Integration][] pa
 [Karma]: http://karma-runner.github.io/
 [Jasmine]: http://jasmine.github.io/2.0/introduction.html
 [Protractor]: https://angular.github.io/protractor/
+=======
+# car_management
+car_management disertation
+>>>>>>> 7346e1eef0d8a088447fb00087c0b08dcf0c5d03
