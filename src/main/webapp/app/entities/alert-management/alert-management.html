@@ -1,0 +1,31 @@
+<div>
+    <h2>Alerts</h2>
+    <jhi-alert></jhi-alert>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                <th><span>Name</span></th>
+                <th><span>Details</span></th>
+                <th jh-sort-by="expirationDate"><span>Expiration date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th><span>Type</span></th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="alert in vm.alerts">
+                <td>{{alert.name}}</td>
+                <td>{{alert.details}} </td>
+                <td>{{alert.expirationDate}} </td>
+                <td>{{alert.type}}</td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page"
+                        ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

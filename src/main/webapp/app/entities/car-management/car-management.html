@@ -1,0 +1,94 @@
+<div>
+    <h2>Cars</h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-md-4">
+            <button class="btn btn-primary" ui-sref="car-management.new">
+                <span class="glyphicon glyphicon-flash"></span> <span>Create a new Car</span>
+            </button>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                <th jh-sort-by="id"><span>ID</span><span class="glyphicon glyphicon-sort"></span></th>
+                <th jh-sort-by="name"><span>Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th jh-sort-by="marca"><span>Car brand</span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th><span>License number</span></th>
+                <th jh-sort-by="model"><span>Model</span> <span class="glyphicon glyphicon-sort"></span>
+                </th>
+                <th><span>Year of manufacture</span></th>
+                <th><span>Fuel</span></th>
+                <th><span>Gearbox</span></th>
+                <th><span>Color</span></th>
+                <th><span>Driver</span></th>
+                <th><span>Power</span></th>
+<!--                <th jh-sort-by="lastModifiedBy"><span>Last Modified By</span> <span
+                    class="glyphicon glyphicon-sort"></span></th>
+                <th jh-sort-by="lastModifiedDate"><span>Last Modified Date</span> <span
+                    class="glyphicon glyphicon-sort"></span></th>
+                <th></th>-->
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="car in vm.cars track by car.id">
+                <td><a ui-sref="car-management-detail({id:car.id})">{{car.id}}</a></td>
+                <td>{{car.name}}</td>
+                <td>{{car.marca}}</td>
+                <td>{{car.nrInmatriculare}}</td>
+                <td>{{car.model}}</td>
+                <td>{{car.anFabricatie}}</td>
+                <td>{{car.combustibil}}</td>
+                <td>{{car.cutieViteza}}</td>
+                <td>{{car.culoare}}</td>
+                <td>{{car.user.firstName}} {{car.user.lastName}}</td>
+                <td>{{car.putere}}</td>
+
+ <!--               <td>
+                    <span class="label label-danger" ng-click="vm.setActive(user, true)" ng-show="!user.activated"
+                          style="cursor: pointer;">Deactivated</span>
+                    <span class="label label-success" ng-click="vm.setActive(user, false)" ng-show="user.activated"
+                          style="cursor: pointer;">Activated</span>
+                </td>-->
+
+ <!--               <td>
+                    <div ng-repeat="authority in user.authorities">
+                        <span class="label label-info">{{ authority }}</span>
+                    </div>
+                </td>
+                <td>{{user.createdDate | date:'dd/MM/yy HH:mm'}}</td>
+                <td>{{user.lastModifiedBy}}</td>
+                <td>{{user.lastModifiedDate | date:'dd/MM/yy HH:mm'}}</td> -->
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                ui-sref="car-management-detail({id:car.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            <span class="hidden-xs hidden-sm"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="car-management.edit({id:car.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            <span class="hidden-xs hidden-sm"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="car-management.delete({id:car.id})"
+                                class="btn btn-danger btn-sm" ng-disabled="vm.currentAccount.login==car.user.login">
+                            <span class="glyphicon glyphicon-remove-circle"></span>
+                            <span class="hidden-xs hidden-sm"></span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page"
+                        ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

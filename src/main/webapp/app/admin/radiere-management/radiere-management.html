@@ -1,0 +1,61 @@
+<div>
+    <h2>List car erasers</h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-md-4">
+            <button class="btn btn-primary" ui-sref="radiere-management.new">
+                <span class="glyphicon glyphicon-flash"></span> <span>Add new car</span>
+            </button>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                <th jh-sort-by="id"><span>ID</span><span class="glyphicon glyphicon-sort"></span></th>
+                <th><span>Name</span></th>
+                <th jh-sort-by="not_before"><span>Date</span> <span class="glyphicon glyphicon-sort"></span>
+                </th>
+                <th><span>Registration number</span></th>
+                <th><span>Reason for the radiation</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="radiere in vm.erasers track by radiere.id">
+                <td><a ui-sref="radiere-management-detail({id:radiere.id})">{{radiere.id}}</a></td>
+                <td>{{radiere.name}}</td>
+                <td>{{radiere.data}}</td>
+                <td>{{radiere.nr_inregistrare}}</td>
+                <td>{{radiere.motivul}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                ui-sref="radiere-management-detail({id:radiere.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            <span class="hidden-xs hidden-sm"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="radiere-management.edit({id:radiere.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            <span class="hidden-xs hidden-sm"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="radiere-management.delete({id:radiere.id})"
+                                class="btn btn-danger btn-sm" ng-disabled="vm.currentAccount.login==radiere.car.user.login">
+                            <span class="glyphicon glyphicon-remove-circle"></span>
+                            <span class="hidden-xs hidden-sm"></span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page"
+                        ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

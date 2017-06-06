@@ -1,0 +1,69 @@
+<div>
+    <h2>"{{vm.car.user.firstName}} {{vm.car.user.lastName}}" <span>is car owner</span> </h2>
+    <dl class="dl-horizontal">
+        <dt><span>Id</span></dt>
+        <dd><span>{{vm.car.id}}</span></dd>
+        <dt><span>Car name</span></dt>
+        <dd>{{vm.car.name}}</dd>
+        <dt><span>Car description</span></dt>
+        <dd>{{vm.car.description}}</dd>
+        <dt><span>Car brand</span></dt>
+        <dd>{{vm.car.marca}}</dd>
+        <dt><span>Model</span></dt>
+        <dd>{{vm.car.model}}</dd>
+        <dt><span>Version</span></dt>
+        <dd>{{vm.car.versiune}}</dd>
+        <dt><span>Year of manufacture</span></dt>
+        <dd>{{vm.car.anFabricatie}}</dd>
+        <dt><span>Cilindrical capacity</span></dt>
+        <dd>{{vm.car.capacitateCilindrica}}</dd>
+        <dt><span>Fuel</span></dt>
+        <dd>{{vm.car.combustibil}}</dd>
+        <dt><span>Gearbox type</span></dt>
+        <dd>{{vm.car.cutieViteza}}</dd>
+        <dt><span>Transmission</span></dt>
+        <dd>{{vm.car.transmisie}}</dd>
+        <dt><span>Bodywork</span></dt>
+        <dd>{{vm.car.caroserie}}</dd>
+        <dt><span>Number of kilometers</span></dt>
+        <dd>{{vm.car.nrKm}}</dd>
+        <dt><span>Colour</span></dt>
+        <dd>{{vm.car.culoare}}</dd>
+        <dt><span>power</span></dt>
+        <dd>{{vm.car.putere}}</dd>
+        <dt><span>License number</span></dt>
+        <dd>{{vm.car.nrInmatriculare}}</dd>
+        <dt><span>RCA valabiliy</span></dt>
+        <dd>{{vm.car.rca[0].not_after}}</dd>
+        <dt><span>RCA number</span></dt>
+        <dd>{{vm.car.rca[0].nr_inregistrare}}</dd>
+        <dt><span>ITP valabiliy</span></dt>
+        <dd>{{vm.car.itp[0].not_after}}</dd>
+        <dt><span>ITP number</span></dt>
+        <dd>{{vm.car.itp[0].nr_inregistrare}}</dd>
+
+        <dt><span>Driver email</span></dt>
+        <dd>{{vm.car.user.email}}</dd>
+        <dt><span>Activated</span></dt>
+        <dd>{{vm.car.user.activated}}</dd>
+<!--        <dt><span>Created By</span></dt>
+        <dd>{{vm.car.user.createdBy}}</dd>
+        <dt><span>Created Date</span></dt>
+        <dd>{{vm.car.user.createdDate | date:'dd/MM/yy HH:mm' }}</dd>
+        <dt><span>Last Modified By</span></dt>
+        <dd>{{vm.car.user.lastModifiedBy}}</dd>
+        <dt><span>Last Modified Date</span></dt>
+        <dd>{{vm.car.user.lastModifiedDate | date:'dd/MM/yy HH:mm'}}</dd>
+        <dt><span>Profiles</span></dt>
+        <dd>
+            <ul class="list-unstyled">
+                <li ng-repeat="authority in vm.car.user.authorities"><span>{{authority}}</span></li>
+            </ul>
+        </dd>       -->
+    </dl>
+    <button type="submit"
+            ui-sref="car-management"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>
