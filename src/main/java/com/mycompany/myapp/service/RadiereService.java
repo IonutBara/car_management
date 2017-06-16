@@ -3,6 +3,7 @@ package com.mycompany.myapp.service;
 import com.mycompany.myapp.domain.auto.Car;
 import com.mycompany.myapp.domain.auto.RadiereAuto;
 import com.mycompany.myapp.repository.RadiereRepository;
+import com.mycompany.myapp.service.dto.RadiereDTO;
 import com.mycompany.myapp.service.util.RandomUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,5 +57,11 @@ public class RadiereService {
                 consumer.setCar(car);
                 LOGGER.debug("Changed Information for Radiere Auto: {}", consumer);
             });
+    }
+
+    public RadiereDTO mapRadiereResponse(RadiereAuto radiere) {
+        return new RadiereDTO(radiere.getId(), radiere.getName(),
+            radiere.getDescription(), radiere.getNr_inregistrare(),
+            radiere.getData(), radiere.getMotivul(), radiere.getCar());
     }
 }

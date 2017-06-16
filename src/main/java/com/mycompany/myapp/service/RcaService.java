@@ -3,6 +3,7 @@ package com.mycompany.myapp.service;
 import com.mycompany.myapp.domain.auto.AsigurareRCA;
 import com.mycompany.myapp.domain.auto.Car;
 import com.mycompany.myapp.repository.RcaRepository;
+import com.mycompany.myapp.service.dto.RcaDTO;
 import com.mycompany.myapp.service.util.RandomUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +21,7 @@ import java.util.Optional;
 @Transactional
 public class RcaService {
 
-    private final Logger LOGGER = LoggerFactory.getLogger(RcaService.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(RcaService.class);
 
     private RcaRepository rcaRepository;
 
@@ -54,8 +55,14 @@ public class RcaService {
                 rca.setCar(car);
                 rca.setNot_after(not_after);
                 rca.setNot_before(not_before);
-                //rca.setNr_inregistrare(RandomUtil.generateNrInregistrare());
                 LOGGER.debug("Changed Information for Asigurare RCA: {}", rca);
             });
+    }
+
+    public RcaDTO mapRcaResponse(AsigurareRCA rca) {
+        return new RcaDTO(rca.getId(), rca.getName(),
+            rca.getDescription(), rca.getNot_before(),
+            rca.getNot_after(), rca.getNr_inregistrare(),
+            rca.getCar());
     }
 }

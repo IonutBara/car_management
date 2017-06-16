@@ -1,20 +1,20 @@
 <div>
-    <h2>Active sessions for [<b>{{vm.account.login}}</b>]</h2>
+    <h2>Sesiunile active ale utilizatorului: [<b>{{vm.account.login}}</b>]</h2>
 
     <div class="alert alert-success" ng-show="vm.success">
-        <strong>Session invalidated!</strong>
+        <strong>Sesiunea a fost invalidată!</strong>
     </div>
     <div class="alert alert-danger" ng-show="vm.error">
-        <strong>An error has occured!</strong> The session could not be invalidated.
+        <strong>A aparut o eroare!</strong> Sesiunea nu a putut fi invalidată.
     </div>
 
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>IP Address</th>
-                    <th>User agent</th>
-                    <th>Date</th>
+                    <th>Adresa IP</th>
+                    <th>Browser</th>
+                    <th>Data</th>
                     <th></th>
                 </tr>
             </thead>
@@ -27,7 +27,7 @@
                         <button type="submit"
                                 class="btn btn-primary"
                                 ng-click="vm.invalidate(session.series)">
-                                 Invalidate
+                                 Invalideaza
                         </button>
                     </td>
                 </tr>

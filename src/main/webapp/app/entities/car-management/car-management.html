@@ -1,10 +1,10 @@
 <div>
-    <h2>Cars</h2>
+    <h2>Autoturisme inmatriculate in circulatie</h2>
     <jhi-alert></jhi-alert>
     <div class="row">
         <div class="col-md-4">
             <button class="btn btn-primary" ui-sref="car-management.new">
-                <span class="glyphicon glyphicon-flash"></span> <span>Create a new Car</span>
+                <span class="glyphicon glyphicon-flash"></span> <span>Adauga autoturism</span>
             </button>
         </div>
     </div>
@@ -13,17 +13,17 @@
             <thead>
             <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                 <th jh-sort-by="id"><span>ID</span><span class="glyphicon glyphicon-sort"></span></th>
-                <th jh-sort-by="name"><span>Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                <th jh-sort-by="marca"><span>Car brand</span> <span class="glyphicon glyphicon-sort"></span></th>
-                <th><span>License number</span></th>
+                <th jh-sort-by="name"><span>Nume</span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th jh-sort-by="marca"><span>Marca</span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th><span>Numar de inmatriculare</span></th>
                 <th jh-sort-by="model"><span>Model</span> <span class="glyphicon glyphicon-sort"></span>
                 </th>
-                <th><span>Year of manufacture</span></th>
-                <th><span>Fuel</span></th>
-                <th><span>Gearbox</span></th>
-                <th><span>Color</span></th>
-                <th><span>Driver</span></th>
-                <th><span>Power</span></th>
+                <th><span>Anul de fabricatie</span></th>
+                <th><span>Combustibil</span></th>
+                <th><span>Cutie de viteza</span></th>
+                <th><span>Culoare</span></th>
+                <th><span>Conducator auto</span></th>
+                <th><span>Putere</span></th>
 <!--                <th jh-sort-by="lastModifiedBy"><span>Last Modified By</span> <span
                     class="glyphicon glyphicon-sort"></span></th>
                 <th jh-sort-by="lastModifiedDate"><span>Last Modified Date</span> <span

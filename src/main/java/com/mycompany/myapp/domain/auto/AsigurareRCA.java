@@ -36,10 +36,10 @@ public class AsigurareRCA implements Serializable {
     @Column(name = "nr_inregistrare")
     private String nr_inregistrare;
 
-    //@OneToOne(fetch = FetchType.LAZY, mappedBy = "rca", cascade = CascadeType.ALL)
     @JsonIgnore
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "car_id")
+    @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Car car;
 
     public Long getId() {
@@ -113,11 +113,7 @@ public class AsigurareRCA implements Serializable {
 
     @Override
     public int hashCode() {
-/*        int result = not_before.hashCode();
-        result = 31 * result + not_after.hashCode();
-        result = 31 * result + nr_inregistrare.hashCode();*/
-        int result = id.hashCode();
-        return result;
+        return id.hashCode();
     }
 
     @Override

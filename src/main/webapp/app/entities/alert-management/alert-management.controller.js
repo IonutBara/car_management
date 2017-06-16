@@ -10,7 +10,7 @@
     function AlertManagementController(Principal, Alert, ParseLinks, AlertService, $state, pagingParams, paginationConstants) {
         var vm = this;
 
-        vm.authorities = ['ROLE_USER', 'ROLE_ADMIN'];
+        vm.authorities = ['ROLE_USER'];
         vm.currentAccount = null;
         vm.languages = null;
         vm.loadAll = loadAll;
@@ -48,6 +48,7 @@
         }
 
         function onSuccess(data, headers) {
+            vm.totalItems = data.length;
             vm.queryCount = vm.totalItems;
             vm.page = pagingParams.page;
             vm.alerts = data;

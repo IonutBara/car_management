@@ -3,6 +3,7 @@ package com.mycompany.myapp.service;
 import com.mycompany.myapp.domain.auto.Car;
 import com.mycompany.myapp.domain.auto.Casco;
 import com.mycompany.myapp.repository.CascoRepository;
+import com.mycompany.myapp.service.dto.CascoDTO;
 import com.mycompany.myapp.service.util.RandomUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +31,7 @@ public class CascoService {
     }
 
     public Casco createCasco(String name, String description, String observatii,
-                             LocalDate not_after, LocalDate not_before, long suma,
+                             LocalDate not_after, LocalDate not_before, double suma,
                              String moneda, String clauze, String precizari, Car car) {
         Casco casco = new Casco();
         casco.setName(name);
@@ -51,7 +52,7 @@ public class CascoService {
     }
 
     public void updateCasco(Long id, String name, String description, String observatii,
-                            LocalDate not_after, LocalDate not_before, long suma,
+                            LocalDate not_after, LocalDate not_before, double suma,
                             String moneda, String clauze, String precizari, Car car) {
         Optional.of(cascoRepository
             .findOne(id))
@@ -69,5 +70,14 @@ public class CascoService {
                 //casco.setNr_inregistrare(RandomUtil.generateNrInregistrare());
                 LOGGER.debug("Changed Information for Asigurare auto Casco : {}", casco);
             });
+    }
+
+    public CascoDTO mapResponseCasco(Casco casco) {
+        return new CascoDTO(casco.getId(), casco.getName(),
+            casco.getDescription(), casco.getObservatii(),
+            casco.getNot_before(), casco.getNot_after(),
+            casco.getSumaAsigurata(), casco.getNr_inregistrare(),
+            casco.getMoneda(), casco.getClauzeSpeciale(),
+            casco.getAltePrecizari(), casco.getCar());
     }
 }

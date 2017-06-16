@@ -4,7 +4,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
         <h4 class="modal-title" id="myCarLabel">
-            Create or edit a Car</h4>
+            Adauga/editeaza autoturism</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
@@ -14,17 +14,17 @@
                    ng-model="vm.car.id" readonly>
         </div>
         <div class="form-group">
-            <label>Name</label>
+            <label>Nume</label>
             <input type="text" class="form-control" name="name"
                    ng-model="vm.car.name">
         </div>
         <div class="form-group">
-            <label>Description</label>
+            <label>Descriere</label>
             <input type="text" class="form-control" name="description"
                    ng-model="vm.car.description">
         </div>
         <div class="form-group">
-            <label>Car brand</label>
+            <label>Marca</label>
             <input type="text" class="form-control" name="marca"
                    ng-model="vm.car.marca">
         </div>
@@ -34,57 +34,57 @@
                    ng-model="vm.car.model">
         </div>
         <div class="form-group">
-            <label>Version</label>
+            <label>Versiune</label>
             <input type="text" class="form-control" name="versiune"
                    ng-model="vm.car.versiune">
         </div>
         <div class="form-group">
-            <label>License number</label>
+            <label>Nr. inmatriculare</label>
             <input type="text" class="form-control" name="nrInmatriculare"
                    ng-model="vm.car.nrInmatriculare">
         </div>
         <div class="form-group">
-            <label>Year of manufacture</label>
+            <label>An fabricatie</label>
             <input type="text" class="form-control" name="anFabricatie"
                    ng-model="vm.car.anFabricatie">
         </div>
         <div class="form-group">
-            <label>Motor cilindrical capacity</label>
+            <label>Capacitate cilindrica motor</label>
             <input type="text" class="form-control" name="capacitateCilindrica"
                    ng-model="vm.car.capacitateCilindrica">
         </div>
         <div class="form-group">
-            <label>Fuel</label>
+            <label>Tip combustibil</label>
             <input type="text" class="form-control" name="combustibil"
                    ng-model="vm.car.combustibil">
         </div>
         <div class="form-group">
-            <label>Gearbox type</label>
+            <label>Cutie de viteza (manuala/automata)</label>
             <input type="text" class="form-control" name="cutieViteza"
                    ng-model="vm.car.cutieViteza">
         </div>
         <div class="form-group">
-            <label>Transmission</label>
+            <label>Transmisie</label>
             <input type="text" class="form-control" name="transmisie"
                    ng-model="vm.car.transmisie">
         </div>
         <div class="form-group">
-            <label>Bodywork</label>
+            <label>Caroserie</label>
             <input type="text" class="form-control" name="caroserie"
                    ng-model="vm.car.caroserie">
         </div>
         <div class="form-group">
-            <label>Color</label>
+            <label>Culoare</label>
             <input type="text" class="form-control" name="culoare"
                    ng-model="vm.car.culoare">
         </div>
         <div class="form-group">
-            <label>Power (CP)</label>
+            <label>Putere (CP)</label>
             <input type="text" class="form-control" name="putere"
                    ng-model="vm.car.putere">
         </div>
         <div class="form-group">
-            <label>Number of kilometers</label>
+            <label>Rulaj (Nr. de kilometri)</label>
             <input type="text" class="form-control" name="nrKm"
                    ng-model="vm.car.nrKm">
         </div>
@@ -174,10 +174,10 @@
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span
-        >Cancel</span>
+        >Anulare</span>
         </button>
         <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Salveaza</span>
         </button>
     </div>
 

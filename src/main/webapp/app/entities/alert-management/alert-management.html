@@ -1,14 +1,14 @@
 <div>
-    <h2>Alerts</h2>
+    <h2>Alerte cu privire la termenul limita al documentelor autoturismelor</h2>
     <jhi-alert></jhi-alert>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
             <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                <th><span>Name</span></th>
-                <th><span>Details</span></th>
-                <th jh-sort-by="expirationDate"><span>Expiration date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                <th><span>Type</span></th>
+                <th><span>Nume</span></th>
+                <th><span>Detalii</span></th>
+                <th jh-sort-by="expirationDate"><span>Data expirarii</span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th><span>Document</span></th>
 
             </tr>
             </thead>
@@ -18,7 +18,6 @@
                 <td>{{alert.details}} </td>
                 <td>{{alert.expirationDate}} </td>
                 <td>{{alert.type}}</td>
-
             </tr>
             </tbody>
         </table>

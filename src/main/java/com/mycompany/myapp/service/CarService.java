@@ -19,7 +19,7 @@ import java.util.Set;
 @Transactional
 public class CarService {
 
-    private final Logger LOGGER = LoggerFactory.getLogger(CarService.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(CarService.class);
 
     private CarsRepository carsRepository;
 
@@ -49,18 +49,6 @@ public class CarService {
         } else {
             throw new UserUnauthorizedException("The user is not authorized to modify car.");
         }
-/*        Set<Car> cars = current.getCars();
-        if (!cars.isEmpty()) {
-            for (Car car : cars) {
-                if (car.getName().equalsIgnoreCase(carToEdit.getName()))
-                    LOGGER.debug("User {} is authorized to edit car {}", current.getEmail(), carToEdit.getName());
-                else {
-                    throw new UserUnauthorizedException("The user is not authorized to modify car.");
-                }
-            }
-        } else {
-            throw new UserUnauthorizedException("The user is not authorized to modify car.");
-        }*/
     }
 
     public void createCar(String name, String description,

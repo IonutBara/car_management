@@ -23,7 +23,7 @@ public class CascoDTO {
 
     private String nr_inregistrare;
 
-    private long sumaAsigurata;
+    private double sumaAsigurata;
 
     private String moneda;
 
@@ -37,7 +37,7 @@ public class CascoDTO {
     }
 
     public CascoDTO(Long id, String name, String description, String observatii,
-                  LocalDate not_before, LocalDate not_after, long sumaAsigurata,
+                  LocalDate not_before, LocalDate not_after, double sumaAsigurata,
                   String nr_inregistrare, String moneda, String clauzeSpeciale,
                    String altePrecizari, Car car) {
         this.id = id;
@@ -86,7 +86,7 @@ public class CascoDTO {
         this.observatii = observatii;
     }
 
-    public long getSumaAsigurata() {
+    public double getSumaAsigurata() {
         return sumaAsigurata;
     }
 

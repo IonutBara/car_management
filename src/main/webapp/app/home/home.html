@@ -6,20 +6,20 @@
             </span>
         </div>
         <div class="col-md-8">
-            <h1>Welcome to Drivers and vehicles management!</h1>
-            <p class="lead">This is your homepage</p>
+            <h1>Registru online al conducatorilor auto si autoturismelor inmatriculate in circulatie</h1>
+          <!--  <p class="lead">This is your homepage</p>-->
 
             <div ng-switch="vm.isAuthenticated()">
                 <div class="alert alert-success" ng-switch-when="true">
-                    You are logged in as user "{{vm.account.login}}".
+                    Sunteți conectat(ă) ca utilizator "{{vm.account.login}}".
                 </div>
 
                 <div class="alert alert-warning" ng-switch-when="false">
-                    If you want to <a class="alert-link" href="" ng-click="vm.login()">sign in</a>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").
+                    Daca doriti sa va <a class="alert-link" href="" ng-click="vm.login()">Conectati</a>, puteti incerca urmatoarele conturi implicite:<br/>- Administrator (e-mail="admin" si parola="admin") <br/>- Conducator auto (e-mail="user" and parola="user").
                 </div>
 
                 <div class="alert alert-warning" ng-switch-when="false">
-                    You don't have an account yet? <a class="alert-link" ui-sref="register">Register a new account</a>
+                    Nu aveti inca un cont? <a class="alert-link" ui-sref="register">Inregistreaza-te</a>
                 </div>
             </div>
         </div>

@@ -54,6 +54,7 @@ public class RcaResource {
     @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<?> listAll() {
         List<AsigurareRCA> rcaList = rcaRepository.findAll();
+        rcaList.forEach(rca->LOGGER.debug("RCA is for CAR: {}",rca.getCar()));
         return new ResponseEntity<>(rcaList, HttpStatus.OK);
     }
 
@@ -65,8 +66,9 @@ public class RcaResource {
         if (rca == null) {
             throw new RcaNotFoundException("This Asigurare RCA doesn't exist in portal.");
         }
-        LOGGER.debug("Returned Asigurare Rca : {}", rca);
-        return new ResponseEntity<>(rca, HttpStatus.OK);
+        RcaDTO response = rcaService.mapRcaResponse(rca);
+        LOGGER.debug("Returned Asigurare Rca : {}", response);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PutMapping("/rca")

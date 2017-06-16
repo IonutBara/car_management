@@ -3,6 +3,7 @@ package com.mycompany.myapp.service;
 import com.mycompany.myapp.domain.auto.Car;
 import com.mycompany.myapp.domain.auto.ITP;
 import com.mycompany.myapp.repository.ItpRepository;
+import com.mycompany.myapp.service.dto.ItpDTO;
 import com.mycompany.myapp.service.util.RandomUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +20,7 @@ import java.util.Optional;
 @Service
 @Transactional
 public class ItpService {
-    private final Logger LOGGER = LoggerFactory.getLogger(ItpService.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(ItpService.class);
 
     private ItpRepository itpRepository;
 
@@ -40,7 +41,7 @@ public class ItpService {
         itp.setNot_after(not_after == null ? date : not_after);
         itp.setNot_before(not_before == null ? LocalDate.of(date.getYear() + 1, date.getMonth(), date.getDayOfMonth()) : not_before);
         itpRepository.save(itp);
-        LOGGER.debug("Itp created successfully: {}", itp);
+        LOGGER.debug("Itp created successfully : {}", itp);
         return itp;
     }
 
@@ -58,5 +59,12 @@ public class ItpService {
                 //itpConsumer.setNr_inregistrare(RandomUtil.generateNrInregistrare());
                 LOGGER.debug("Changed Information for Itp auto : {}", itpConsumer);
             });
+    }
+
+    public ItpDTO mapItpResponse(ITP itp) {
+        return new ItpDTO(itp.getId(), itp.getName(),
+            itp.getDescription(), itp.getObservatii(),
+            itp.getNot_before(), itp.getNot_after(),
+            itp.getNr_inregistrare(), itp.getCar());
     }
 }

@@ -4,7 +4,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
         <h4 class="modal-title" id="myCarLabel">
-            Create or edit an ITP</h4>
+            Creeaza/Editeaza ITP</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
@@ -14,12 +14,12 @@
                    ng-model="vm.rca.id" readonly>
         </div>
         <div class="form-group">
-            <label>Name</label>
+            <label>Nume document</label>
             <input type="text" class="form-control" name="name"
                    ng-model="vm.rca.name">
         </div>
         <div class="form-group">
-            <label>Description</label>
+            <label>Descriere</label>
             <input type="text" class="form-control" name="description"
                    ng-model="vm.rca.description">
         </div>
@@ -29,18 +29,18 @@
                    ng-model="vm.rca.observatii">
         </div>
         <div class="form-group">
-            <label>ITP valabil incepand cu data de:</label>
+            <label>Valabil incepand cu:</label>
             <input type="text" class="form-control" name="not_after"
                    ng-model="vm.rca.not_after">
         </div>
         <div class="form-group">
-            <label>ITP valabil pana la date de:</label>
+            <label>Valabil pana la:</label>
             <input type="text" class="form-control" name="not_after"
                    ng-model="vm.rca.not_before">
         </div>
 
         <div class="form-group">
-            <label>Car</label>
+            <label>Autoturism</label>
             <select class="form-control" multiple name="vm.rca.car" ng-model="vm.rca.car"
                     ng-options="car as car.name for car in cars">
             </select>
@@ -49,11 +49,10 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span
-        >Cancel</span>
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Anuleaza</span>
         </button>
         <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Salveaza</span>
         </button>
     </div>
 

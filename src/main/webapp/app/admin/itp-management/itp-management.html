@@ -1,10 +1,10 @@
 <div>
-    <h2>Lista inspectii tehnice periodice (ITP)</h2>
+    <h2>Lista inspectiilor tehnice periodice (ITP)</h2>
     <jhi-alert></jhi-alert>
     <div class="row">
         <div class="col-md-4">
             <button class="btn btn-primary" ui-sref="itp-management.new">
-                <span class="glyphicon glyphicon-flash"></span> <span>Create ITP</span>
+                <span class="glyphicon glyphicon-flash"></span> <span>Creeaza ITP</span>
             </button>
         </div>
     </div>
@@ -13,14 +13,14 @@
             <thead>
             <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                 <th jh-sort-by="id"><span>ID</span><span class="glyphicon glyphicon-sort"></span></th>
-                <th><span>Name</span></th>
-                <th><span>Description</span> </th>
+                <th><span>Nume</span></th>
+                <th><span>Descriere document</span> </th>
                 <th><span>Observatii</span> </th>
-                <th jh-sort-by="not_before"><span>Not_before</span> <span class="glyphicon glyphicon-sort"></span>
+                <th jh-sort-by="not_before"><span>Valabil incepand cu</span> <span class="glyphicon glyphicon-sort"></span>
                 </th>
-                <th jh-sort-by="not_after"><span>Not_after</span> <span class="glyphicon glyphicon-sort"></span>
+                <th jh-sort-by="not_after"><span>Valabil pana la</span> <span class="glyphicon glyphicon-sort"></span>
                 </th>
-                <th><span>Nr de inregistrare</span></th>
+                <th><span>Nr. de inregistrare</span></th>
             </tr>
             </thead>
             <tbody>

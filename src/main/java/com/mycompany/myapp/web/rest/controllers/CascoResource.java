@@ -67,8 +67,9 @@ public class CascoResource {
         if (casco == null) {
             throw new CascoNotFoundException("This Casco doesn't exist in portal.");
         }
-        LOGGER.debug("Returned Asigurare CASCO Auto : {}", casco);
-        return new ResponseEntity<>(casco, HttpStatus.OK);
+        CascoDTO response = cascoService.mapResponseCasco(casco);
+        LOGGER.debug("Returned Asigurare CASCO Auto : {}", response);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PutMapping("/casco")

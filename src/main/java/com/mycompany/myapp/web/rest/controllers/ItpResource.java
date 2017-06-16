@@ -65,8 +65,9 @@ public class ItpResource {
         if (itp == null) {
             throw new ItpNotFoundException("This Itp auto doesn't exist in portal.");
         }
-        LOGGER.debug("Returned ITP Auto : {}", itp);
-        return new ResponseEntity<>(itp, HttpStatus.OK);
+        ItpDTO response = itpService.mapItpResponse(itp);
+        LOGGER.debug("Returned ITP Auto : {}", response);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PutMapping("/itp")

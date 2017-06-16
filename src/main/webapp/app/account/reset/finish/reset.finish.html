@@ -1,71 +1,71 @@
 <div>
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <h1>Reset password</h1>
+            <h1>Reseteaza parola</h1>
 
             <div class="alert alert-danger" ng-show="vm.keyMissing">
-                <strong>The password reset key is missing.</strong>
+                <strong>Cheia de resetare a parolei lipseste.</strong>
             </div>
 
             <div class="alert alert-warning" ng-hide="vm.success || vm.keyMissing">
-                <p>Choose a new password</p>
+                <p>Alegeti o parola noua</p>
             </div>
 
             <div class="alert alert-danger" ng-show="vm.error">
-                <p>Your password couldn't be reset. Remember a password request is only valid for 24 hours.</p>
+                <p>Parola dumneavoastra nu poate fi resetata. Amintiți-va ca o solicitare de parola este valabila numai pentru 24 de ore.</p>
             </div>
 
             <div class="alert alert-success" ng-show="vm.success">
-                <p><strong>Your password has been reset.</strong> Please <a class="alert-link" href="" ng-click="vm.login()">sign in</a>.</p>
+                <p><strong>Parola dumneavoastra a fost resetata.</strong> Va rugam <a class="alert-link" href="" ng-click="vm.login()">conectati-va</a>.</p>
             </div>
 
             <div class="alert alert-danger" ng-show="vm.doNotMatch">
-                The password and its confirmation do not match!
+                Parola si confirmarea nu se potrivesc!
             </div>
 
             <div ng-hide="vm.keyMissing">
                 <form ng-show="!vm.success" name="form" role="form" novalidate ng-submit="vm.finishReset()" show-validation>
                     <div class="form-group">
-                        <label class="control-label" for="password">New password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="New password"
+                        <label class="control-label" for="password">Noua parola</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Noua parola"
                                ng-model="vm.resetAccount.password" ng-minlength=4 ng-maxlength=50 required>
                         <div ng-show="form.password.$dirty && form.password.$invalid">
                             <p class="help-block"
                                ng-show="form.password.$error.required">
-                                Your password is required.
+                                Parola este obligatorie.
                             </p>
                             <p class="help-block"
                                ng-show="form.password.$error.minlength">
-                                Your password is required to be at least 4 characters.
+                                Parola dvs. trebuie sa aiba cel putin 4 caractere.
                             </p>
                             <p class="help-block"
                                ng-show="form.password.$error.maxlength">
-                                Your password cannot be longer than 50 characters.
+                                Parola nu trebuie sa fie mai mare de 50 de caractere.
                             </p>
                         </div>
                         <password-strength-bar password-to-check="vm.resetAccount.password"></password-strength-bar>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="confirmPassword">New password confirmation</label>
-                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm the new password"
+                        <label class="control-label" for="confirmPassword">Confirmare parola noua</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirmare parola noua"
                                ng-model="vm.confirmPassword" ng-minlength=4 ng-maxlength=50 required>
                         <div ng-show="form.confirmPassword.$dirty && form.confirmPassword.$invalid">
                             <p class="help-block"
                                ng-show="form.confirmPassword.$error.required">
-                                Your password confirmation is required.
+                                Confirmarea parolei este obligatorie.
                             </p>
                             <p class="help-block"
                                ng-show="form.confirmPassword.$error.minlength">
-                                Your password confirmation is required to be at least 4 characters.
+                                Confirmarea parolei trebuie sa aiba cel puțin 4 caractere.
                             </p>
                             <p class="help-block"
                                ng-show="form.confirmPassword.$error.maxlength">
-                                Your password confirmation cannot be longer than 50 characters.
+                                Confirmarea parolei nu poate fi mai mare de 50 de caractere.
                             </p>
                         </div>
                     </div>
-                    <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Reset Password</button>
+                    <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Reseteaza parola</button>
                 </form>
             </div>
 

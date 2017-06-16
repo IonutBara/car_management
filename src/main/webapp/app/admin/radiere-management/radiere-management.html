@@ -1,10 +1,10 @@
 <div>
-    <h2>List car erasers</h2>
+    <h2>Lista autovehiculelor scoase din circulatie</h2>
     <jhi-alert></jhi-alert>
     <div class="row">
         <div class="col-md-4">
             <button class="btn btn-primary" ui-sref="radiere-management.new">
-                <span class="glyphicon glyphicon-flash"></span> <span>Add new car</span>
+                <span class="glyphicon glyphicon-flash"></span> <span>Radiaza</span>
             </button>
         </div>
     </div>
@@ -12,12 +12,12 @@
         <table class="table table-striped">
             <thead>
             <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                <th jh-sort-by="id"><span>ID</span><span class="glyphicon glyphicon-sort"></span></th>
-                <th><span>Name</span></th>
-                <th jh-sort-by="not_before"><span>Date</span> <span class="glyphicon glyphicon-sort"></span>
+                <th jh-sort-by="id"><span>Id</span><span class="glyphicon glyphicon-sort"></span></th>
+                <th><span>Nume document</span></th>
+                <th jh-sort-by="not_before"><span>Data radierii</span> <span class="glyphicon glyphicon-sort"></span>
                 </th>
-                <th><span>Registration number</span></th>
-                <th><span>Reason for the radiation</span></th>
+                <th><span>Nr. de inregistrare</span></th>
+                <th><span>Motivul radierii</span></th>
             </tr>
             </thead>
             <tbody>

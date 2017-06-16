@@ -64,8 +64,9 @@ public class RadiereResource {
         if (one == null) {
             throw new RadiereNotFoundException("This Radiere doesn't exist in portal.");
         }
-        LOGGER.debug("Returned Radiere auto informations : {}", one);
-        return new ResponseEntity<>(one, HttpStatus.OK);
+        RadiereDTO response = radiereService.mapRadiereResponse(one);
+        LOGGER.debug("Returned Radiere auto informations : {}", response);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PutMapping("/radiere")

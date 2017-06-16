@@ -1,36 +1,22 @@
 <div>
-    <h2><span>Detalii ale Asigurarii Auto : </span> "{{vm.rca.name}}"</h2>
+    <h2><span>Detalii ale asigurarii auto RCA : </span> "{{vm.rca.name}}"</h2>
     <dl class="dl-horizontal">
         <dt><span>Id</span></dt>
         <dd><span>{{vm.rca.id}}</span></dd>
-        <dt><span>Rca name</span></dt>
+        <dt><span>Nume document</span></dt>
         <dd>{{vm.rca.name}}</dd>
-        <dt><span>Rca description</span></dt>
+        <dt><span>Descriere document</span></dt>
         <dd>{{vm.rca.description}}</dd>
-        <dt><span>Asigurare RCA valabil incepand cu:</span></dt>
+        <dt><span>Valabil incepand cu:</span></dt>
         <dd>{{vm.rca.not_before}}</dd>
-        <dt><span>Asigurare RCA valabil pana la:</span></dt>
+        <dt><span>Valabil pana la:</span></dt>
         <dd>{{vm.rca.not_after}}</dd>
-        <dt><span>Nr inregistrare RCA </span></dt>
+        <dt><span>Nr. inregistrare</span></dt>
         <dd>{{vm.rca.nr_inregistrare}}</dd>
-<!--        <dt><span>Created By</span></dt>
-        <dd>{{vm.car.user.createdBy}}</dd>
-        <dt><span>Created Date</span></dt>
-        <dd>{{vm.car.user.createdDate | date:'dd/MM/yy HH:mm' }}</dd>
-        <dt><span>Last Modified By</span></dt>
-        <dd>{{vm.car.user.lastModifiedBy}}</dd>
-        <dt><span>Last Modified Date</span></dt>
-        <dd>{{vm.car.user.lastModifiedDate | date:'dd/MM/yy HH:mm'}}</dd>
-        <dt><span>Profiles</span></dt>
-        <dd>
-            <ul class="list-unstyled">
-                <li ng-repeat="authority in vm.car.user.authorities"><span>{{authority}}</span></li>
-            </ul>
-        </dd>       -->
     </dl>
     <button type="submit"
             ui-sref="rca-management"
             class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Inapoi</span>
     </button>
 </div>

@@ -48,6 +48,7 @@
         }
 
         function onSuccess(data, headers) {
+            vm.totalItems = data.length;
             vm.queryCount = vm.totalItems;
             vm.page = pagingParams.page;
             vm.cascos = data;

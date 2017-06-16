@@ -69,10 +69,6 @@ public class Car implements Serializable {
 
     @Column(name = "nr_km")
     private double nrKm;
-/*
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "company", fetch = FetchType.EAGER)
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Review> reviews = new HashSet<>();*/
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "owner_id")
@@ -80,7 +76,6 @@ public class Car implements Serializable {
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "car", fetch = FetchType.EAGER)
-    //@OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<AsigurareRCA> rca = new HashSet<>();
 
@@ -93,10 +88,8 @@ public class Car implements Serializable {
     private Set<Casco> casco = new HashSet<>();
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "car", cascade = CascadeType.ALL)
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private RadiereAuto radiere;
-
-/*    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
-    private Set<Job> jobs = new HashSet<>();*/
 
     public Long getId() {
         return id;
@@ -274,21 +267,6 @@ public class Car implements Serializable {
         this.address = address;
     }*/
 
-/*    public Set<Review> getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(Set<Review> reviews) {
-        this.reviews = reviews;
-    }*/
-
-/*    public Set<Job> getJobs() {
-        return jobs;
-    }
-
-    public void setJobs(Set<Job> jobs) {
-        this.jobs = jobs;
-    }*/
 
     @Override
     public boolean equals(Object o) {
@@ -328,10 +306,6 @@ public class Car implements Serializable {
             ", culoare='" + culoare + '\'' +
             ", putere='" + putere + '\'' +
             ", nrKm=" + nrKm +
-            //", rca=" + rca +
-            //", itp=" + itp +
-            //", casco=" + casco +
-            //", radiere=" + radiere +
             '}';
     }
 }

@@ -38,7 +38,7 @@ public class RadiereAuto implements Serializable {
     private String motivul;
 
     @JsonIgnore
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "car_id")
     private Car car;
 
