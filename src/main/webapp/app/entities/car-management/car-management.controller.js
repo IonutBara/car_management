@@ -48,7 +48,7 @@
         }
 
         function onSuccess(data, headers) {
-            vm.totalItems = data.length +1;
+            vm.totalItems = data.length;
             vm.queryCount = vm.totalItems;
             vm.page = pagingParams.page;
             vm.cars = data;

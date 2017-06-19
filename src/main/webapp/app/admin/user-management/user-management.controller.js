@@ -57,7 +57,7 @@
                 }
             }
             vm.links = ParseLinks.parse(headers('link'));
-            vm.totalItems = headers('X-Total-Count') - hiddenUsersSize +1;
+            vm.totalItems = headers('X-Total-Count') - hiddenUsersSize;
             vm.queryCount = vm.totalItems;
             vm.page = pagingParams.page;
             vm.users = data;

@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created by ibara on 11/29/2016.*/
+ * UserUnauthorizedException*/
 
 
 @Entity

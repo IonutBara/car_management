@@ -1,7 +1,7 @@
 package com.mycompany.myapp.exceptions;
 
 /**
- * Created by ibara on 12/6/2016.
+ * UserUnauthorizedException.
  */
 public class UserUnauthorizedException extends Exception {
 

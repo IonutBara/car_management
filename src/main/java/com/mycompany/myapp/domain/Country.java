@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 import java.util.Set;
 
 /**
- * Created by ibara on 11/28/2016.
+ * Country model
  */
 @Entity
 @Table(name = "country")
