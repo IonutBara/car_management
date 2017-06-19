@@ -33,19 +33,85 @@
         <dd>{{vm.car.putere}}</dd>
         <dt><span>Nr. de inmatriculare</span></dt>
         <dd>{{vm.car.nrInmatriculare}}</dd>
-        <dt><span>Valabilitate RCA</span></dt>
-        <dd>{{vm.car.rca[0].not_after}}</dd>
-        <dt><span>Nr. inregistrare RCA</span></dt>
-        <dd>{{vm.car.rca[0].nr_inregistrare}}</dd>
-        <dt><span>Valabilitate ITP</span></dt>
-        <dd>{{vm.car.itp[0].not_after}}</dd>
-        <dt><span>Nr. inregistrare ITP</span></dt>
-        <dd>{{vm.car.itp[0].nr_inregistrare}}</dd>
-
         <dt><span>E-mail proprietar</span></dt>
         <dd>{{vm.car.user.email}}</dd>
         <dt><span>Activat</span></dt>
-        <dd>{{vm.car.user.activated}}</dd>
+        <dd>{{vm.car.user.activated==true?"Da":"Nu"}}</dd>
+        <hr>
+        <h3>
+            <span>Detalii referitoare la documentele autoturismului</span>
+        </h3>
+        <!-- ----------RCA---------- -->
+        <dt ng-show="vm.car.rca.length>0">
+            <span>RCA valabil pana la</span>
+        </dt>
+        <dd ng-show="vm.car.rca.length>0">
+            {{vm.car.rca[0].not_after}}
+        </dd>
+        <dt ng-show="vm.car.rca.length>0">
+            <span>Nr. inregistrare RCA</span>
+        </dt>
+        <dd ng-show="vm.car.rca.length>0">
+            {{vm.car.rca[0].nr_inregistrare}}
+        </dd>
+        <!-- ----------ITP---------- -->
+        <dt ng-show="vm.car.itp.length>0">
+            <span>ITP valabil pana la</span>
+        </dt>
+        <dd ng-show="vm.car.itp.length>0">
+            {{vm.car.itp[0].not_after}}
+        </dd>
+        <dt ng-show="vm.car.itp.length>0">
+            <span>Nr. inregistrare ITP</span>
+        </dt>
+        <dd ng-show="vm.car.itp.length>0">
+            {{vm.car.itp[0].nr_inregistrare}}
+        </dd>
+        <dt ng-show="vm.car.itp.length>0">
+            <span>Observatii ITP</span>
+        </dt>
+        <dd ng-show="vm.car.itp.length>0">
+            {{vm.car.itp[0].observatii}}
+        </dd>
+        <!-- ----------CASCO---------- -->
+        <dt ng-show="vm.car.casco.length>0">
+            <span>Nr. inregistrare Casco</span>
+        </dt>
+        <dd ng-show="vm.car.casco.length>0">
+        {{vm.car.casco[0].nr_inregistrare}}
+        </dd>
+        <dt ng-show="vm.car.casco.length>0">
+            <span>Casco valabil pana la</span>
+        </dt>
+        <dd ng-show="vm.car.casco.length>0">
+            {{vm.car.casco[0].not_after}}
+        </dd>
+        <dt ng-show="vm.car.casco.length>0">
+            <span>Suma asigurata</span>
+        </dt>
+        <dd ng-show="vm.car.casco.length>0">
+            {{vm.car.casco[0].sumaAsigurata}}
+        <dt ng-show="vm.car.casco.length>0">
+            <span>Moneda</span>
+        </dt>
+        <dd ng-show="vm.car.casco.length>0">
+            {{vm.car.casco[0].moneda}}
+        </dd>
+        <dt ng-show="vm.car.casco.length>0">
+            <span>Precizari Casco</span>
+        </dt>
+        <dd ng-show="vm.car.casco.length>0">
+            {{vm.car.casco[0].altePrecizari}}
+        </dd>
+        <dt ng-show="vm.car.casco.length>0">
+            <span>Clauze speciale Casco</span>
+        </dt>
+        <dd ng-show="vm.car.casco.length>0">
+            {{vm.car.casco[0].clauzeSpeciale}}
+        </dd>
+<hr>
+        <dt><span>Scos din circulatie</span></dt>
+        <dd>{{vm.car.radiere==null? "Nu":"Da"}}</dd>
     </dl>
     <button type="submit"
             ui-sref="car-management"

@@ -74,12 +74,8 @@ public class CarResource {
     @Timed
     @Secured({AuthoritiesConstants.ADMIN, AuthoritiesConstants.USER})
     public ResponseEntity<?> addCar(@RequestBody CarDTO carDTO) {
-        long userID = 3;
         User userLogged = userRepository.getUserByLogin(SecurityUtils.getCurrentUserLogin());
         LOGGER.debug("User userLogged {} ", userLogged);
-        if (userID >= 0) {
-            userLogged = userRepository.findOne(userID);
-        }
         carService.createCar(carDTO.getName(), carDTO.getDescription(), carDTO.getMarca(),
             carDTO.getModel(), carDTO.getVersiune(), carDTO.getAnFabricatie(), carDTO.getCapacitateCilindrica(),
             carDTO.getCombustibil(), carDTO.getCutieViteza(), carDTO.getTransmisie(), carDTO.getCaroserie(),
