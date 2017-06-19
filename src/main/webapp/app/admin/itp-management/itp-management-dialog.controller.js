@@ -10,7 +10,6 @@
     function ItpManagementDialogController ($stateParams, $uibModalInstance, entity, Itp, Car, $scope) {
         var vm = this;
 
-        vm.authorities = ['ROLE_USER', 'ROLE_ADMIN'];
         vm.clear = clear;
         vm.languages = null;
         vm.save = save;
@@ -32,21 +31,32 @@
         function save () {
             vm.isSaving = true;
             if (vm.rca.id !== null) {
-                vm.rca.car = vm.rca.car[0];
+                console.log('Updating....');
+                vm.rca.car = null;
+                getCarByName($scope.current);
+                vm.rca.car = $scope.toSave;
                 Itp.update(vm.rca, onSaveSuccess, onSaveError);
             } else {
-                vm.rca.car = vm.rca.car[0];
+                console.log('Saving....');
+                vm.rca.car = null;
+                getCarByName($scope.current);
+                vm.rca.car = $scope.toSave;
                 Itp.save(vm.rca, onSaveSuccess, onSaveError);
             }
         }
 
-         $scope.cars = Car.query({}, function data(){});
-         vm.rca.car = $scope.cars[0];
+         $scope.cars = Car.query({}, function data() {
+            $scope.current = vm.rca.car.name;
+            console.log("$scope.current", $scope.current);
+         });
 
-         function getCarByName() {
+         function getCarByName(carName) {
                 for (var index = 0; index < $scope.cars.length; index++) {
-                    vm.rca.car = $scope.cars[index].id;
+                    if($scope.cars[index].name == carName) {
+                        $scope.toSave = $scope.cars[index];
+                    }
                 }
          }
+
     }
 })();

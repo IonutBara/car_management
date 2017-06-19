@@ -58,21 +58,14 @@
             <input type="text" class="form-control" name="altePrecizari"
                    ng-model="vm.casco.altePrecizari">
         </div>
-
-        <div class="form-group">
-            <label>Autoturism</label>
-            <select class="form-control" multiple name="vm.casco.car" ng-model="vm.casco.car"
-                    ng-options="car as car.name for car in cars">
-            </select>
-        </div>
-<!--        <div>
+        <div>
             <label>Autoturism</label><br>
             <div class="col-sm-4">
-                <select class="form-control" class="form-control" name="repeatSelect" id="repeatSelect" ng-model="vm.casco.car.name">
+                <select class="form-control" name="repeatSelect" id="repeatSelect" ng-model="current">
                     <option ng-repeat="car in cars" value="{{car.name}}">{{car.name}}</option>
                 </select>
             </div><br><br>
-        </div>-->
+        </div>
 
     </div>
     <div class="modal-footer">

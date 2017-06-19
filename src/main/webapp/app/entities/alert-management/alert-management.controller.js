@@ -59,12 +59,6 @@
         }
 
         function clear () {
-/*            vm.user = {
-                id: null, login: null, firstName: null, lastName: null, email: null,
-                activated: null, langKey: null, createdBy: null, createdDate: null,
-                lastModifiedBy: null, lastModifiedDate: null, resetDate: null,
-                resetKey: null, authorities: null
-            };*/
         }
 
         function sort () {

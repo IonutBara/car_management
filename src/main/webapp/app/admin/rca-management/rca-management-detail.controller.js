@@ -18,6 +18,7 @@
         function load (id) {
             Rca.get({id: id}, function(result) {
                 vm.rca = result;
+                vm.currentCar = result.car;
             });
         }
     }

@@ -10,7 +10,6 @@
     function CascoManagementDialogController ($stateParams, $uibModalInstance, entity, Casco, Car, $scope) {
         var vm = this;
 
-        vm.authorities = ['ROLE_USER', 'ROLE_ADMIN'];
         vm.clear = clear;
         vm.languages = null;
         vm.save = save;
@@ -32,23 +31,30 @@
         function save () {
             vm.isSaving = true;
             if (vm.casco.id !== null) {
-                vm.casco.car = vm.casco.car[0];
-                console.log('vm.casco.altePrecizari',vm.casco.altePrecizari);
-                 console.log('vm.casco.clauzeSpeciale',vm.casco.clauzeSpeciale);
-                  console.log('vm.casco.sumaAsigurata',vm.casco.sumaAsigurata);
+                console.log('Updating....');
+                vm.casco.car = null;
+                getCarByName($scope.current);
+                vm.casco.car = $scope.toSave;
                 Casco.update(vm.casco, onSaveSuccess, onSaveError);
             } else {
-                vm.casco.car = vm.casco.car[0];
+                console.log('Saving....');
+                vm.casco.car = null;
+                getCarByName($scope.current);
+                vm.casco.car = $scope.toSave;
                 Casco.save(vm.casco, onSaveSuccess, onSaveError);
             }
         }
 
-         $scope.cars = Car.query({}, function data(){});
-         vm.casco.car = $scope.cars[0];
+         $scope.cars = Car.query({}, function data() {
+            $scope.current = vm.casco.car.name;
+            console.log("$scope.current", $scope.current);
+         });
 
-         function getCarByName() {
+         function getCarByName(carName) {
                 for (var index = 0; index < $scope.cars.length; index++) {
-                    vm.casco.car = $scope.cars[index].id;
+                    if($scope.cars[index].name == carName) {
+                        $scope.toSave = $scope.cars[index];
+                    }
                 }
          }
     }

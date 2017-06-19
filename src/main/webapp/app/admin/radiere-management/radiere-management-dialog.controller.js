@@ -32,20 +32,30 @@
         function save () {
             vm.isSaving = true;
             if (vm.radiere.id !== null) {
-                vm.radiere.car = vm.radiere.car[0];
+                console.log('Updating....');
+                vm.radiere.car = null;
+                getCarByName($scope.current);
+                vm.radiere.car = $scope.toSave;
                 Radiere.update(vm.radiere, onSaveSuccess, onSaveError);
             } else {
-                vm.radiere.car = vm.radiere.car[0];
+                console.log('Saving....');
+                vm.radiere.car = null;
+                getCarByName($scope.current);
+                vm.radiere.car = $scope.toSave;
                 Radiere.save(vm.radiere, onSaveSuccess, onSaveError);
             }
         }
 
-         $scope.cars = Car.query({}, function data(){});
-         vm.radiere.car = $scope.cars[0];
+         $scope.cars = Car.query({}, function data() {
+            $scope.current = vm.radiere.car.name;
+            console.log("$scope.current", $scope.current);
+         });
 
-         function getCarByName() {
+         function getCarByName(carName) {
                 for (var index = 0; index < $scope.cars.length; index++) {
-                    vm.radiere.car = $scope.cars[index].id;
+                    if($scope.cars[index].name == carName) {
+                        $scope.toSave = $scope.cars[index];
+                    }
                 }
          }
     }

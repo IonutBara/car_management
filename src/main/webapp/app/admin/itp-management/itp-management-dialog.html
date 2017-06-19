@@ -38,12 +38,13 @@
             <input type="text" class="form-control" name="not_after"
                    ng-model="vm.rca.not_before">
         </div>
-
-        <div class="form-group">
-            <label>Autoturism</label>
-            <select class="form-control" multiple name="vm.rca.car" ng-model="vm.rca.car"
-                    ng-options="car as car.name for car in cars">
-            </select>
+        <div>
+            <label>Autoturism</label><br>
+            <div class="col-sm-4">
+                <select class="form-control" name="repeatSelect" id="repeatSelect" ng-model="current">
+                    <option ng-repeat="car in cars" value="{{car.name}}">{{car.name}}</option>
+                </select>
+            </div><br><br>
         </div>
 
     </div>
