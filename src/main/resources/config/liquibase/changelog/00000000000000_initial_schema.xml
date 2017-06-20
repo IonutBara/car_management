@@ -10,16 +10,16 @@
 
     <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
 
-    <changeSet id="00000000000000" author="jhipster" dbms="postgresql,oracle">
+    <changeSet id="00000000000000" author="" dbms="postgresql,oracle">
         <createSequence sequenceName="hibernate_sequence" startValue="1000" incrementBy="1"/>
     </changeSet>
 
     <!--
-        JHipster core tables.
+        Core tables.
         The initial schema has the '00000000000001' id, so that it is over-written if we re-generate it.
     -->
-    <changeSet id="00000000000001" author="jhipster">
-        <createTable tableName="jhi_user">
+    <changeSet id="createAuthenticationTables" author="">
+        <createTable tableName="user">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
@@ -91,21 +91,21 @@
                                  baseTableName="jhi_user_authority"
                                  constraintName="fk_user_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="jhi_user"/>
+                                 referencedTableName="user"/>
 
         <addForeignKeyConstraint baseColumnNames="user_id"
                                  baseTableName="jhi_persistent_token"
                                  constraintName="fk_user_persistent_token"
                                  referencedColumnNames="id"
-                                 referencedTableName="jhi_user"/>
+                                 referencedTableName="user"/>
         <loadData encoding="UTF-8"
                   file="config/liquibase/users.csv"
                   separator=";"
-                  tableName="jhi_user">
+                  tableName="user">
             <column name="activated" type="boolean"/>
             <column name="created_date" type="timestamp"/>
         </loadData>
-        <dropDefaultValue tableName="jhi_user" columnName="created_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="user" columnName="created_date" columnDataType="datetime"/>
 
         <loadData encoding="UTF-8"
                   file="config/liquibase/authorities.csv"
@@ -159,7 +159,7 @@
     </changeSet>
 
     <changeSet id="createTableCar" author="">
-        <createTable tableName="jhi_car">
+        <createTable tableName="autoturism">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false" unique="true"/>
             </column>
@@ -169,42 +169,42 @@
             <column name="description" type="varchar(1024)"/>
             <column name="marca" type="varchar(32)"/>
             <column name="model" type="varchar(32)"/>
-            <column name="versiune" type="varchar(16)"/>
+            <column name="versiune" type="varchar(32)"/>
             <column name="an_fabricatie" type="varchar(8)"/>
-            <column name="capacitate_cilindrica" type="varchar(8)"/>
-            <column name="combustibil" type="varchar(8)"/>
-            <column name="cutie_viteza" type="varchar(8)"/>
-            <column name="transmisie" type="varchar(8)"/>
-            <column name="caroserie" type="varchar(8)"/>
+            <column name="capacitate_cilindrica" type="varchar(32)"/>
+            <column name="combustibil" type="varchar(32)"/>
+            <column name="cutie_viteza" type="varchar(32)"/>
+            <column name="transmisie" type="varchar(32)"/>
+            <column name="caroserie" type="varchar(32)"/>
             <column name="nr_km" type="double"/>
             <column name="owner_id" type="bigint">
                 <constraints nullable="false"/>
             </column>
         </createTable>
 
-        <addForeignKeyConstraint baseTableName="jhi_car"
+        <addForeignKeyConstraint baseTableName="autoturism"
                                  baseColumnNames="owner_id"
                                  constraintName="fk_owner_id"
-                                 referencedTableName="jhi_user"
+                                 referencedTableName="user"
                                  referencedColumnNames="id"/>
     </changeSet>
 
     <changeSet id="addNewColumnInCarTable" author="">
-        <addColumn tableName="jhi_car">
-            <column name="culoare" type="varchar(16)"/>
-            <column name="putere" type="varchar(16)"/>
+        <addColumn tableName="autoturism">
+            <column name="culoare" type="varchar(32)"/>
+            <column name="putere" type="varchar(32)"/>
         </addColumn>
     </changeSet>
     <changeSet id="addTelephoneColumnInUserTable" author="">
-        <addColumn tableName="jhi_user">
+        <addColumn tableName="user">
             <column name="telefon" type="varchar(16)">
                 <constraints unique="true" nullable="true"/>
             </column>
         </addColumn>
     </changeSet>
     <changeSet id="addNrInmatriculare" author="">
-        <addColumn tableName="jhi_car">
-            <column name="nr_inmatriculare" type="varchar(16)"/>
+        <addColumn tableName="autoturism">
+            <column name="nr_inmatriculare" type="varchar(32)"/>
         </addColumn>
     </changeSet>
 
@@ -227,7 +227,7 @@
         <addForeignKeyConstraint baseTableName="asigurare_rca"
                                  baseColumnNames="car_id"
                                  constraintName="fk_asigurare_rca_id"
-                                 referencedTableName="jhi_car"
+                                 referencedTableName="autoturism"
                                  referencedColumnNames="id"/>
     </changeSet>
 
@@ -251,7 +251,7 @@
         <addForeignKeyConstraint baseTableName="itp_auto"
                                  baseColumnNames="car_id"
                                  constraintName="fk_car_itp_id"
-                                 referencedTableName="jhi_car"
+                                 referencedTableName="autoturism"
                                  referencedColumnNames="id"/>
     </changeSet>
 
@@ -280,7 +280,7 @@
                                  baseTableName="asigurare_casco"
                                  constraintName="fk_asigurare_casco_car"
                                  referencedColumnNames="id"
-                                 referencedTableName="jhi_car"/>
+                                 referencedTableName="autoturism"/>
     </changeSet>
 
     <changeSet id="createTableRadiere" author="">
@@ -294,7 +294,7 @@
             <column name="description" type="varchar(1024)"/>
             <column name="nr_inregistrare" type="varchar(32)"/>
             <column name="data" type="date"/>
-            <column name="motivul" type="date"/>
+            <column name="motivul" type="varchar(512)"/>
             <column name="car_id" type="bigint">
                 <constraints nullable="false"/>
             </column>
@@ -303,13 +303,7 @@
                                  baseTableName="radiere_auto"
                                  constraintName="fk_radiere_car"
                                  referencedColumnNames="id"
-                                 referencedTableName="jhi_car"/>
-    </changeSet>
-    <changeSet id="dropColumnMotivTableRadiere" author="">
-        <dropColumn tableName="radiere_auto" columnName="motivul"/>
-        <addColumn tableName="radiere_auto">
-            <column name="motivul" type="varchar(512)"/>
-        </addColumn>
+                                 referencedTableName="autoturism"/>
     </changeSet>
 
 </databaseChangeLog>
