@@ -5,6 +5,7 @@ import com.mycompany.myapp.domain.User;
 import com.mycompany.myapp.domain.auto.Car;
 import com.mycompany.myapp.exceptions.UserUnauthorizedException;
 import com.mycompany.myapp.repository.CarsRepository;
+import com.mycompany.myapp.repository.UserRepository;
 import com.mycompany.myapp.security.AuthoritiesConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -87,7 +88,7 @@ public class CarService {
                           String cutieViteza, String transmisie,
                           String caroserie, String culoare,
                           String putere, String nrInmatriculare,
-                          double nrKm) {
+                          double nrKm, User user) {
         Optional.of(carsRepository
             .findOne(id))
             .ifPresent(car -> {
@@ -106,6 +107,7 @@ public class CarService {
                 car.setPutere(putere);
                 car.setNrInmatriculare(nrInmatriculare);
                 car.setNrKm(nrKm);
+                car.setUser(user);
                 LOGGER.debug("Changed Information for Car: {}", car);
             });
     }

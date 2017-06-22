@@ -76,6 +76,9 @@ public class CarResource {
     public ResponseEntity<?> addCar(@RequestBody CarDTO carDTO) {
         User userLogged = userRepository.getUserByLogin(SecurityUtils.getCurrentUserLogin());
         LOGGER.debug("User userLogged {} ", userLogged);
+        if (SecurityUtils.isCurrentUserInRole(AuthoritiesConstants.ADMIN)) {
+            userLogged = (carDTO.getUser() != null) ? carDTO.getUser() : userLogged;
+        }
         carService.createCar(carDTO.getName(), carDTO.getDescription(), carDTO.getMarca(),
             carDTO.getModel(), carDTO.getVersiune(), carDTO.getAnFabricatie(), carDTO.getCapacitateCilindrica(),
             carDTO.getCombustibil(), carDTO.getCutieViteza(), carDTO.getTransmisie(), carDTO.getCaroserie(),
@@ -126,7 +129,7 @@ public class CarResource {
         carService.updateCar(carDTO.getId(), carDTO.getName(), carDTO.getDescription(), carDTO.getMarca(),
             carDTO.getModel(), carDTO.getVersiune(), carDTO.getAnFabricatie(), carDTO.getCapacitateCilindrica(),
             carDTO.getCombustibil(), carDTO.getCutieViteza(), carDTO.getTransmisie(), carDTO.getCaroserie(),
-            carDTO.getCuloare(), carDTO.getPutere(), carDTO.getNrInmatriculare(), carDTO.getNrKm());
+            carDTO.getCuloare(), carDTO.getPutere(), carDTO.getNrInmatriculare(), carDTO.getNrKm(), carDTO.getUser());
         LOGGER.debug("Returned Car: {}", car);
         return new ResponseEntity<>(car, HttpStatus.OK);
     }

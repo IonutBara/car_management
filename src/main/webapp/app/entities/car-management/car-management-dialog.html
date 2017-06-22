@@ -89,6 +89,15 @@
                    ng-model="vm.car.nrKm">
         </div>
 
+        <div ng-show="currentRole=='ROLE_ADMIN'">
+            <label>Conducator auto</label><br>
+            <div class="col-sm-4">
+                <select class="form-control" name="repeatSelect" id="repeatSelect" ng-model="currentUser">
+                    <option ng-repeat="user in users" value="{{user.email}}">{{user.email}}</option>
+                </select>
+            </div><br><br>
+        </div>
+
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
